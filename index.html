@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CASELOAD: USCIS Officer Simulator</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23163f5f'/%3E%3Crect x='10' y='10' width='44' height='44' fill='%23f3eedf'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='monospace' font-size='16' font-weight='700' fill='%2311232f'%3EIOE%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="agency-badge" aria-label="Fictional USCIS seal">
+        <span>USCIS</span>
+      </div>
+      <div>
+        <p class="eyebrow">Fictional Service Center Training Build</p>
+        <h1>CASELOAD: Officer Desk</h1>
+      </div>
+      <div class="shift-clock" id="shiftClock">Day 1 · 08:00</div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="panel training-panel">
+        <section>
+          <p class="section-label">新手教学</p>
+          <h2>今天你坐上了审案工位</h2>
+          <ol class="tutorial-list" id="tutorialList"></ol>
+        </section>
+
+        <section class="stats-card">
+          <p class="section-label">值班状态</p>
+          <div class="meters">
+            <div>
+              <span>准确率</span>
+              <strong id="accuracyValue">100%</strong>
+            </div>
+            <div class="meter">
+              <span>压力</span>
+              <div class="meter-track"><i id="stressMeter"></i></div>
+            </div>
+            <div class="meter">
+              <span>系统健康</span>
+              <div class="meter-track system"><i id="systemMeter"></i></div>
+            </div>
+            <div>
+              <span>积压</span>
+              <strong id="backlogValue">7 cases</strong>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <p class="section-label">案件队列</p>
+            <button class="small-button" id="shuffleButton" type="button">补件来袭</button>
+          </div>
+          <div class="case-queue" id="caseQueue"></div>
+        </section>
+      </aside>
+
+      <section class="case-desk">
+        <div class="panel case-file" id="caseFile">
+          <div class="file-header">
+            <div>
+              <p class="section-label">Active Case</p>
+              <h2 id="caseTitle">Loading case...</h2>
+            </div>
+            <div class="case-tags" id="caseTags"></div>
+          </div>
+
+          <nav class="tab-strip" aria-label="Case review tabs">
+            <button class="tab active" data-tab="snapshot" type="button">案情</button>
+            <button class="tab" data-tab="forms" type="button">表格</button>
+            <button class="tab" data-tab="evidence" type="button">证据</button>
+            <button class="tab" data-tab="systems" type="button">系统</button>
+          </nav>
+
+          <section class="tab-panel" id="tabPanel" aria-live="polite"></section>
+
+          <div class="decision-dock" id="decisionDock">
+            <button data-decision="approve" type="button">盖章批准</button>
+            <button data-decision="rfe" type="button">发 RFE</button>
+            <button data-decision="deny" type="button">拒绝</button>
+            <button data-decision="hold" type="button">系统 Hold</button>
+            <button data-decision="escalate" type="button">升级复核</button>
+          </div>
+        </div>
+
+        <div class="panel outcome-panel" id="outcomePanel">
+          <p class="section-label">操作回执</p>
+          <div id="outcomeContent">
+            <h3>等待审查</h3>
+            <p>先跟着教学读完案情、表格和系统记录，再选择处理动作。</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel pressure-panel">
+        <section class="system-board">
+          <p class="section-label">系统公告</p>
+          <h2 id="systemHeadline">ELIS 正常运行</h2>
+          <p id="systemCopy">所有模块在线。趁现在多办几个案子，暴风雨总会来的。</p>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <p class="section-label">客服转发邮件</p>
+            <span class="mail-count" id="mailCount">0</span>
+          </div>
+          <div class="mail-stack" id="mailStack"></div>
+        </section>
+      </aside>
+    </main>
+
+    <div class="daily-report hidden" id="dailyReport" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+      <div class="report-card">
+        <p class="section-label">End of Shift</p>
+        <h2 id="reportTitle">今日办案报告</h2>
+        <div id="reportBody"></div>
+        <button id="restartButton" type="button">重新开班</button>
+      </div>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
