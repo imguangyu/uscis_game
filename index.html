@@ -26,9 +26,14 @@
     <main class="app-shell">
       <aside class="panel training-panel">
         <section>
-          <p class="section-label">新手教学</p>
-          <h2>今天你坐上了审案工位</h2>
-          <ol class="tutorial-list" id="tutorialList"></ol>
+          <p class="section-label" id="objectiveLabel">当前轮岗</p>
+          <h2 id="rotationTitle">Training Bay</h2>
+          <p class="rotation-copy" id="rotationCopy">今天你坐上了审案工位。</p>
+          <div class="rotation-progress">
+            <span id="rotationProgressText">0 / 1 cases</span>
+            <div class="meter-track"><i id="rotationMeter"></i></div>
+          </div>
+          <ol class="tutorial-list objective-list" id="tutorialList"></ol>
         </section>
 
         <section class="stats-card">
@@ -37,6 +42,14 @@
             <div>
               <span>准确率</span>
               <strong id="accuracyValue">100%</strong>
+            </div>
+            <div>
+              <span>声誉</span>
+              <strong id="reputationValue">0 pts</strong>
+            </div>
+            <div>
+              <span>KPI</span>
+              <strong id="kpiValue">Training</strong>
             </div>
             <div class="meter">
               <span>压力</span>
@@ -106,12 +119,26 @@
           <p id="systemCopy">所有模块在线。趁现在多办几个案子，暴风雨总会来的。</p>
         </section>
 
+        <section class="policy-board">
+          <div class="section-heading">
+            <p class="section-label">政策备忘录</p>
+            <button class="small-button" id="memoButton" type="button">研读 memo</button>
+          </div>
+          <h3 id="policyTitle">Policy Memo</h3>
+          <p id="policyCopy">读 memo 可以降低误判压力，但会花掉一点时间。</p>
+          <p class="policy-effect" id="policyEffect">Effect pending</p>
+        </section>
+
         <section>
           <div class="section-heading">
             <p class="section-label">客服转发邮件</p>
             <span class="mail-count" id="mailCount">0</span>
           </div>
           <div class="mail-stack" id="mailStack"></div>
+          <div class="mail-actions">
+            <button class="small-button" id="replyMailButton" type="button">回复一封</button>
+            <button class="small-button" id="routeMailButton" type="button">转 IT/主管</button>
+          </div>
         </section>
       </aside>
     </main>
@@ -125,6 +152,6 @@
       </div>
     </div>
 
-    <script src="./app.js" type="module"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

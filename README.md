@@ -10,7 +10,9 @@ https://imguangyu.github.io/uscis_game/
 
 ## 运行
 
-直接打开 `index.html`，或在目录里启动本地静态服务器：
+直接双击打开 `index.html` 即可，不需要启动 terminal。
+
+如果你想用本地静态服务器测试，也可以在目录里运行：
 
 ```bash
 python3 -m http.server 5173
@@ -21,10 +23,14 @@ python3 -m http.server 5173
 ## 当前玩法
 
 - 新手教学从简单的 `I-765 OPT` 开始。
-- 案件会逐步变复杂，包括 `I-765 STEM OPT`、`I-140 NIW`、`I-140 EB-1C`、`I-130`、`I-485`、`N-400`。
+- 教学完成后会进入章节式轮岗：`EAD Desk`、`Employment-Based Desk`、`Mixed Benefits Queue`、`Adjudication Chaos Shift`。
+- 案件会逐步变复杂，包括 `I-765 STEM OPT`、`I-129 H-1B`、`I-140 NIW`、`I-140 EB-1C`、`I-130`、`I-485`、`I-131`、`I-751`、`I-90`、`N-400`。
 - 玩家需要阅读案情、表格、证据和系统记录，再选择批准、RFE、拒绝、系统 Hold 或升级复核。
+- 每个轮岗有 KPI、准确率目标、压力上限和结算报告。
+- 政策备忘录会影响部分案件的得分和惩罚。
 - 选错会提高压力，并触发客服转发邮件。
 - 系统事故会降低系统健康度，并制造更多客服压力。
+- 玩家可以回复邮件或把系统类问题转给 IT/主管，换取压力下降和声誉分。
 
 ## 后续可扩展方向
 

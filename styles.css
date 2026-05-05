@@ -214,6 +214,34 @@ h3 {
   animation: wink 900ms steps(2, end) infinite;
 }
 
+.rotation-copy {
+  margin-bottom: 12px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.rotation-progress {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 14px;
+}
+
+.rotation-progress span {
+  color: var(--blueprint);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.rotation-progress .meter-track i {
+  width: 0%;
+  background: repeating-linear-gradient(90deg, var(--blueprint), var(--blueprint) 8px, var(--blueprint-soft) 8px, var(--blueprint-soft) 13px);
+}
+
+.objective-list li p {
+  margin-bottom: 0;
+  line-height: 1.35;
+}
+
 .meters {
   display: grid;
   gap: 12px;
@@ -532,6 +560,24 @@ button:active {
   color: var(--blueprint);
 }
 
+.policy-board {
+  padding-bottom: 18px;
+  border-bottom: var(--pixel) double rgba(17, 35, 47, 0.28);
+}
+
+.policy-board h3 {
+  margin: 8px 0 8px;
+}
+
+.policy-effect {
+  margin: 10px 0 0;
+  padding: 8px;
+  color: #fff8e8;
+  background: var(--blueprint);
+  border: 2px solid var(--ink);
+  font-size: 0.82rem;
+}
+
 .mail-count {
   display: inline-grid;
   min-width: 28px;
@@ -571,6 +617,13 @@ button:active {
 .mail.urgent {
   border-color: var(--danger);
   box-shadow: inset 4px 0 0 var(--danger);
+}
+
+.mail-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .system-grid {
